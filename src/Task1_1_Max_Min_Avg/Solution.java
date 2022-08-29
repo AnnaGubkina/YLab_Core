@@ -1,17 +1,18 @@
 package Task1_1_Max_Min_Avg;
 
-
-/*
- Заполните двумерный массив случайным числами и выведите максимальное, минимальное и среднее значение.
- Array.sort() использовать нельзя, Random можно но не желательно
+/**
+ * Fill a 2D array with random numbers
+ * Print the maximum, minimum and average value.
+ * Create a custom randomizer
  */
+
 public class Solution {
 
     public static int ARRAY_SIZE = 5;
     public static int SIZE_BOUND = 50;
 
     public static void main(String[] args) {
-        System.out.println("Заполняем двумерный массив случайными числами, выводим max и min и average:");
+        System.out.println("Fill a 2D array with random numbers, calculate max, min and average:");
 
 
         int[][] arr = new int[ARRAY_SIZE][ARRAY_SIZE];

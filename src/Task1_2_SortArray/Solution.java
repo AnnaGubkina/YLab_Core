@@ -1,10 +1,13 @@
 package Task1_2_SortArray;
 
-/*
-Отсортируйте массив [5,6,3,2,5,1,4,9]
-Учесть дубликаты в массиве. Сделать так, чтобы алгоритм работал правильно с дублями.
-Написать простые тесты
+/**
+ * Sorting the array. We use 2 sorting algorithms
+ * Consider duplicates in the array. Make the algorithm work correctly with duplicates.
+ * Write simple tests
+ * We only use class Arrays for the equals method in tests
  */
+
+
 
 import java.util.Arrays;
 
