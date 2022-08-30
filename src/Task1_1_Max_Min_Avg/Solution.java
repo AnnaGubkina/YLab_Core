@@ -25,7 +25,8 @@ public class Solution {
     }
 
     public static void fill2DArrayWithRandomValues(int[][] arr) {
-        for (int i = 0; i < arr.length; i++) {
+        int lengthArr = arr.length;
+        for (int i = 0; i < lengthArr; i++) {
             for (int j = 0; j < arr[i].length; j++) {
                 arr[i][j] = CustomRandom.randomInt(SIZE_BOUND);
             }
@@ -34,7 +35,8 @@ public class Solution {
 
     public static void print2DArray(int[][] arr) {
         if (arr == null) throw new IllegalArgumentException("Array is empty");
-        for (int i = 0; i < arr.length; i++, System.out.println()) {
+        int lengthArr = arr.length;
+        for (int i = 0; i < lengthArr; i++, System.out.println()) {
             for (int j = 0; j < arr[i].length; j++) {
                 System.out.print(arr[i][j] + " ");
             }
@@ -43,11 +45,11 @@ public class Solution {
 
     public static void getMaxValueWith2DArray(int[][] arr) {
         if (arr == null) throw new IllegalArgumentException("Array is empty");
-        int max = arr[0][0];
-        for (int i = 0; i < arr.length; i++) {
-            for (int j = 0; j < arr[i].length; j++) {
-                if (max < arr[i][j])
-                    max = arr[i][j];
+        int max = Integer.MIN_VALUE;
+        for (int[] ints : arr) {
+            for (int anInt : ints) {
+                if (max < anInt)
+                    max = anInt;
             }
         }
         System.out.println("max = " + max);
@@ -55,11 +57,11 @@ public class Solution {
 
     public static void getMinValueWith2DArray(int[][] arr) {
         if (arr == null) throw new IllegalArgumentException("Array is empty");
-        int min = arr[0][0];
-        for (int i = 0; i < arr.length; i++) {
-            for (int j = 0; j < arr[i].length; j++) {
-                if (min > arr[i][j])
-                    min = arr[i][j];
+        int min = Integer.MAX_VALUE;
+        for (int[] ints : arr) {
+            for (int anInt : ints) {
+                if (min > anInt)
+                    min = anInt;
             }
         }
         System.out.println("min = " + min);
@@ -70,11 +72,14 @@ public class Solution {
         int sum = 0;
         int counter = 0;
         double avg;
-        for (int i = 0; i < arr.length; i++) {
-            for (int j = 0; j < arr[i].length; j++) {
-                sum += arr[i][j];
+        for (int[] ints : arr) {
+            for (int anInt : ints) {
+                sum += anInt;
                 counter++;
             }
+        }
+        if (counter == 0) {
+            throw new ArithmeticException("division by zero");
         }
         avg = (double) sum / counter;
         System.out.println("avg = " + avg);
@@ -86,7 +91,7 @@ public class Solution {
         private final static int MULTIPLIER = 1103515245;
         private final static int INCREMENT = 12345;
         private final static int MODULUS = 65536;
-        private static int randInt = (int) System.currentTimeMillis();
+        private static int randInt = (int) System.currentTimeMillis() % 31;
 
 
         public static int randomInt(int bound) {
@@ -94,7 +99,6 @@ public class Solution {
                 throw new IllegalArgumentException("bound must be positive");
 
             randInt = (randInt * MULTIPLIER + INCREMENT) % MODULUS;
-            ;
             if (randInt < 0) {
                 randInt = randInt * -1;
             }
