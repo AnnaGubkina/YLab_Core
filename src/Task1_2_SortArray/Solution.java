@@ -1,15 +1,13 @@
 package Task1_2_SortArray;
+import java.util.Arrays;
 
 /**
- * Sorting the array. We use 2 sorting algorithms
+ * Sorting the array. We use 2 sorting algorithms - "bubble" and "counting".
  * Consider duplicates in the array. Make the algorithm work correctly with duplicates.
  * Write simple tests
  * We only use class Arrays for the equals method in tests
  */
 
-
-
-import java.util.Arrays;
 
 public class Solution {
 
@@ -32,7 +30,8 @@ public class Solution {
     }
 
     public static void sortArr(int[] array) {
-        for (int j = array.length - 1; j > 0; j--) {
+        int length = array.length;
+        for (int j = length - 1; j > 0; j--) {
             for (int i = 0; i < j; i++) {
                 if (array[i] > array[i + 1]) {
                     int tmp = array[i];
@@ -44,8 +43,8 @@ public class Solution {
     }
 
     public static void printArr(int[] array) {
-        for (int y = 0; y < array.length; y++) {
-            System.out.print(array[y] + " ");
+        for (int i : array) {
+            System.out.print(i + " ");
         }
         System.out.println();
     }
@@ -67,7 +66,8 @@ public class Solution {
             buckets[element - min]++;
         }
         int arrayIndex = 0;
-        for (int i = 0; i < buckets.length; i++) {
+        int lengthArrBuckets = buckets.length;
+        for (int i = 0; i < lengthArrBuckets; i++) {
             for (int j = buckets[i]; j > 0; j--) {
                 array[arrayIndex++] = i + min;
             }
